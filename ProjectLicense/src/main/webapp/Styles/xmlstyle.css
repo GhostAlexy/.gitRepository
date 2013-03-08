@@ -1,0 +1,29 @@
+.formProduct {
+	padding-bottom: 40px;
+	padding-left: 20px;
+}
+
+.formText {
+	text-align: left;
+	font-size: medium;
+	font-style: italic;
+	font-weight: bold;
+	color: #777777;
+}
+
+.formProduct label {
+	font-size: 15px;
+	font-weight: bold;
+	margin-left: 135px;
+	padding: 10px 0 0 16px;
+	width: 350px;
+	color: #777777;
+}
+
+.textBoxProduct {
+	height: 34px;
+	margin: 10px 0 0;
+	padding: 3px 5px 0;
+	width: 220px;
+	
+}

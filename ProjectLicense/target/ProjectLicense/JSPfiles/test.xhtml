@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	>
+<h:head>
+</h:head>
+<h:body>
+	<h:button value="alex">
+	</h:button>
+	<p:editor></p:editor>
+	<p:calendar></p:calendar>
+	<p:button></p:button>
+	<h:form>
+
+		<h:panelGrid columns="4" cellpadding="5">
+			<h:outputLabel for="name" value="Name:" style="font-weight:bold" />
+
+			<p:inputText id="name" value="#{pprBean.firstname}" />
+
+			<p:commandButton value="Submit" update="display" />
+
+			<h:outputText value="#{pprBean.firstname}" id="display" />
+		</h:panelGrid>
+
+	</h:form>
+</h:body>
+</html>

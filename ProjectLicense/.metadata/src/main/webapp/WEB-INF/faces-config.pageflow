@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" name="Hello" id="pf13590301778120" configfile="/ProjectLicense/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="JSPfiles/inputMask.xhtml" x="300" y="36" id="pf13590302716231" referenceLink="//@navigationRule.0/@fromViewId|" path="/JSPfiles/inputMask.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="JSPfiles/NewFile.xhtml" x="334" y="210" id="pf13590302716232" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" path="/JSPfiles/NewFile.xhtml"/>
+</pageflow:Pageflow>

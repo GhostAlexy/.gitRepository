@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<link rel="stylesheet" type="text/css" href="../Styles/xmlstyle.css" />
+</h:head>
+<h:body>
+	<p:outputPanel styleClass="formProduct">
+		<h:outputLabel class="formText"
+			value="Pentru a introduce o noua categorie de produse
+		va rugam sa completati campurile urmatoare:" />
+		<h:form>
+			<p:outputPanel>
+				<h:outputLabel for="name" value="Category name:(*)"
+					style="font-weight:bold" />
+				<p:inputText id="name" value="" styleClass="textBoxProduct" />
+				<br />
+				<h:outputLabel for="name" value="Description:"
+					style="font-weight:bold" />
+				<p:inputTextarea rows="5" cols="30" maxlength="1000"
+					autoResize="false" styleClass="textAreaDescr" />
+				<br />
+				<p:commandButton value="Insert" onclick="/test.xhtml" />
+				<p:commandButton value="Cancel" />
+			</p:outputPanel>
+		</h:form>
+	</p:outputPanel>
+</h:body>
+</html>
