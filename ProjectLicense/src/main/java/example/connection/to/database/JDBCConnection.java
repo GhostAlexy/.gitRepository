@@ -48,7 +48,7 @@ public class JDBCConnection {
 			e.printStackTrace();
 
 		} catch (SQLException e) {
-			System.out.println("Errorr!!!!" + e.getMessage());
+			System.out.println("There was something wrong with the database connection!!\n" + e.getMessage());
 			System.exit(-1);
 		}
 		System.out.println("MySQL JDBC Driver Registered!");
