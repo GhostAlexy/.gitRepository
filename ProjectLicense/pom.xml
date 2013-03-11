@@ -163,30 +163,42 @@
 				</configuration>
 				<version>2.3.2</version>
 			</plugin>
-
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>site</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>site</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-project-info-reports-plugin</artifactId> 
 				<version>2.6</version> </plugin> -->
 			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-site-plugin</artifactId> 
 				<version>2.0.1</version> <configuration> <locales>en</locales> </configuration> 
 				</plugin> -->
-			<plugin>
+<!-- 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
 				<version>2.1.1</version>
-			</plugin>
-	<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-site-plugin</artifactId> 
-		<version>3.1</version> </plugin> -->
+			</plugin> -->
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-site-plugin</artifactId> 
+				<version>3.1</version> </plugin> -->
 		</plugins>
 
 		<extensions>
 			<!-- Enabling the use of DAV -->
 			<!-- <extension> <groupId>org.apache.maven.wagon</groupId> <artifactId>wagon-webdav</artifactId> 
 				<version>1.0-beta-2</version> </extension> -->
-			<extension>
+<!-- 			<extension>
 				<groupId>org.apache.maven.wagon</groupId>
 				<artifactId>wagon-webdav-jackrabbit</artifactId>
 				<version>1.0-beta-6</version>
-			</extension>
+			</extension> -->
 		</extensions>
 	</build>
 
@@ -195,7 +207,7 @@
 			<id>site-repo</id>
 			<!-- <url>dav:http://localhost:8081/manager/text/ProjectLicense-site</url> -->
 			<!-- <url>scp://localhost:8081/manager/text/ProjectLicense-site</url> -->
-			<url>file:C:/apache-tomcat-7.0.32/webapps/ProjectLicense-site</url>
+			<!-- <url>file:C:/apache-tomcat-7.0.32/webapps/ProjectLicense-site</url> -->
 			<!-- <url>ftp://localhost:8081/manager/text/ProjectLicense</url> -->
 		</site>
 
