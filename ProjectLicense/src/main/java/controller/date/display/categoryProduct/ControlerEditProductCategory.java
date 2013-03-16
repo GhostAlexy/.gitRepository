@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * @author Puscu George Alexandru
+ * 
+ */
+
 public class ControlerEditProductCategory extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ListProductCategoryExtractor editCategProdExtr;
@@ -17,7 +22,8 @@ public class ControlerEditProductCategory extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		String searchedId = request.getParameter("id");
 		editCategProdExtr = new ListProductCategoryExtractor();
-		ArrayList<ProductCategory> prodCategList = editCategProdExtr.getOneProductCategoryElement(searchedId);
+		ArrayList<ProductCategory> prodCategList = editCategProdExtr
+				.getOneProductCategoryElement(searchedId);
 		request.setAttribute("prodCategEdit", prodCategList);
 		RequestDispatcher view = request
 				.getRequestDispatcher("/JSPfiles/EditProductsCategory.jsp");

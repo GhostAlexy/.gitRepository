@@ -42,6 +42,19 @@
 					type="text" />
 				<br />
 				<div id="15" class="err"></div>
+				<label>Inventory:(*)</label>
+				<div class="styled-select">
+					<select name="inventory" class="textBoxProduct" id="20"
+						style="width: 230px; height: 40px;">
+						<c:forEach items="${inventoryEdit}" var="invent">
+							<option
+								<c:if test="${prod.inventoryName == invent.inventoryName}"> selected="selected" </c:if>>
+								<c:out value="${invent.inventoryName}" />
+							</option>
+						</c:forEach>
+					</select>
+				</div>
+				<div id="21" class="err"></div>
 				<label>Weight:</label>
 				<input id="7" name="weight" value="<c:out value="${prod.weight}" />"
 					class="textBoxProduct" type="text" />

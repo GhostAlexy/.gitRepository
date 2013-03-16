@@ -21,9 +21,9 @@
 	language="javascript" type="text/javascript"></script>
 <%-- <script src="<c:url value="/JavaScriptFiles/jquery.dataTables.js"/>"
 	language="javascript" type="text/javascript"></script> --%>
-<script
+<%-- <script
 	src="<c:url value="/JavaScriptFiles/jquery.tablesorter.min.js"/>"
-	language="javascript" type="text/javascript"></script>
+	language="javascript" type="text/javascript"></script> --%>
 <script src="<c:url value="/JavaScriptFiles/sorting.js"/>"
 	language="javascript" type="text/javascript"></script>
 <script type="text/javascript"

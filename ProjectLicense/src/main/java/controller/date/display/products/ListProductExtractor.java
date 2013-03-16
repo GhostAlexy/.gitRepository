@@ -138,6 +138,11 @@ public class ListProductExtractor {
 				searchedId).toString();
 		String nameCategory = interog.getRow("name", "productcategory", "id",
 				idCategory).toString();
+		
+		String idInventory = interog.getRow("id_inventory",
+				"products_inventory", "id_product", searchedId).toString();
+		String nameInventory = interog.getRow("inventoryName", "inventory",
+				"id", idInventory).toString();
 		String interog = "SELECT * FROM products where id = " + searchedId;
 		try {
 			s = conn.createStatement();
@@ -153,14 +158,14 @@ public class ListProductExtractor {
 								.getInt("weight"), resultQueryProd
 								.getInt("id_categ"), resultQueryProd
 								.getString("image"), resultQueryProd
-								.getString("comment"), nameCategory));
+								.getString("comment"), nameCategory,
+						nameInventory));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return savedList;
 	}
-
 	// public static void main(String[] args) {
 	// ListProductExtractor prod = new ListProductExtractor();
 	// HashMap<String, String> predefinite = new HashMap<String, String>();

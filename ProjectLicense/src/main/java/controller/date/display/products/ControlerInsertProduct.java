@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controler.date.management.inventory.Inventory;
+import controler.date.management.inventory.InventoryExtractor;
 import controller.date.display.categoryProduct.ListProductCategoryExtractor;
 import controller.date.display.categoryProduct.ProductCategory;
 
@@ -19,8 +21,12 @@ public class ControlerInsertProduct extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 
 		ListProductCategoryExtractor categExtr = new ListProductCategoryExtractor();
+		InventoryExtractor inventoryExtr = new InventoryExtractor();
 		ArrayList<ProductCategory> prodCategList = categExtr
 				.getAllProductsCategoryElements();
+		ArrayList<Inventory> inventoryList = inventoryExtr
+				.getAllInventoryElements();
+		request.setAttribute("inventory", inventoryList);
 		request.setAttribute("productsCategory", prodCategList);
 		RequestDispatcher view = request
 				.getRequestDispatcher("/JSPfiles/InsertProducts.jsp");

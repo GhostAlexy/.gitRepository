@@ -19,8 +19,6 @@
 			<c:out value="${allFields.value}" /></label>
 		<br />
 	</c:forEach>
-	
-	
 	<%-- <c:forEach begin="2" end="${fn:length(allFields)-1}" var="i">
 		<input type="checkbox"
 			<c:if test="${fn:contains(selectedFields, allFields[i])}">checked="checked"</c:if>

@@ -66,6 +66,24 @@
 		<servlet-name>InsertCategoryProduct</servlet-name>
 		<url-pattern>/InsertCategoryProduct.aspx</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>InsertInventory</servlet-name>
+		<servlet-class>example.connection.to.database.InsertInventory</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InsertInventory</servlet-name>
+		<url-pattern>/InsertInventory.aspx</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>DeleteInventory</servlet-name>
+		<servlet-class>example.connection.to.database.DeleteInventory</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteInventory</servlet-name>
+		<url-pattern>/DeleteInventory.aspx</url-pattern>
+	</servlet-mapping>
+
 	<servlet>
 		<description></description>
 		<display-name>ControlerListProduct</display-name>
@@ -135,5 +153,35 @@
 	<servlet-mapping>
 		<servlet-name>ControlerEditProductCategory</servlet-name>
 		<url-pattern>/ControlerEditProductCategory.aspx</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>ControlerInsertInventoryLocation</display-name>
+		<servlet-name>ControlerInsertInventoryLocation</servlet-name>
+		<servlet-class>controler.date.management.inventory.ControlerInsertInventoryLocation</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ControlerInsertInventoryLocation</servlet-name>
+		<url-pattern>/ControlerInsertInventoryLocation.aspx</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>ControlerListInventoryLocation</display-name>
+		<servlet-name>ControlerListInventoryLocation</servlet-name>
+		<servlet-class>controler.date.management.inventory.ControlerListInventoryLocation</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ControlerListInventoryLocation</servlet-name>
+		<url-pattern>/ControlerListInventoryLocation.aspx</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>ControlerEditInventoryLocation</display-name>
+		<servlet-name>ControlerEditInventoryLocation</servlet-name>
+		<servlet-class>controler.date.management.inventory.ControlerEditInventoryLocation</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ControlerEditInventoryLocation</servlet-name>
+		<url-pattern>/ControlerEditInventoryLocation.aspx</url-pattern>
 	</servlet-mapping>
 </web-app>

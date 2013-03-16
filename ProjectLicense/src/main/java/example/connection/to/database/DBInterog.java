@@ -111,19 +111,20 @@ public class DBInterog {
 		return sizeNumber;
 	}
 
-//	public static void main(String[] args) {
-//		// DBInterog interog = new DBInterog();
-//		// System.out.println(interog.getColumnNames("products")+"\n");
-//		// System.out.println(interog.getColumnNames("productcategory"));
-//		LinkedHashMap<String, String> predefinite = new LinkedHashMap<String, String>();
-//		predefinite.put("0", "Nume");
-//		predefinite.put("1", "Product Name");
-//		predefinite.put("2", "Article Number");
-//		predefinite.put("3", "Unit Stock");
-//		predefinite.put("4", "Sales Price");
-//		predefinite.put("5", "Description");
-//		predefinite.put("6", "Category");
-//		System.out.println(predefinite);
-//	}
+	// public static void main(String[] args) {
+	// // DBInterog interog = new DBInterog();
+	// // System.out.println(interog.getColumnNames("products")+"\n");
+	// // System.out.println(interog.getColumnNames("productcategory"));
+	// LinkedHashMap<String, String> predefinite = new LinkedHashMap<String,
+	// String>();
+	// predefinite.put("0", "Nume");
+	// predefinite.put("1", "Product Name");
+	// predefinite.put("2", "Article Number");
+	// predefinite.put("3", "Unit Stock");
+	// predefinite.put("4", "Sales Price");
+	// predefinite.put("5", "Description");
+	// predefinite.put("6", "Category");
+	// System.out.println(predefinite);
+	// }
 
 }

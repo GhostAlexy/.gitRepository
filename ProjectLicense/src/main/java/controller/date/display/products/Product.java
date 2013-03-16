@@ -14,6 +14,7 @@ public class Product {
 	private String image;
 	private String comment;
 	private String categoryName;
+	private String inventoryName;
 
 	public Product() {
 	}
@@ -21,7 +22,7 @@ public class Product {
 	public Product(int id, String nameProduct, String articleNuber,
 			String description, String unitStock, float supplierPrice,
 			float salesPrice, float weight, int idCateg, String image,
-			String comment, String categoryName) {
+			String comment, String categoryName, String inventoryName) {
 		this.id = id;
 		this.nameProduct = nameProduct;
 		this.articleNuber = articleNuber;
@@ -34,6 +35,7 @@ public class Product {
 		this.image = image;
 		this.comment = comment;
 		this.categoryName = categoryName;
+		this.inventoryName = inventoryName;
 	}
 
 	public int getId() {
@@ -132,6 +134,14 @@ public class Product {
 		this.categoryName = categoryName;
 	}
 
+	public String getInventoryName() {
+		return inventoryName;
+	}
+
+	public void setInventoryName(String inventoryName) {
+		this.inventoryName = inventoryName;
+	}
+
 	public Object getAttributeValue(String attrValue) {
 		switch (attrValue) {
 		case "id":
@@ -158,6 +168,8 @@ public class Product {
 			return getComment();
 		case "name":
 			return getNameProduct();
+		case "inventoryName":
+			return getInventoryName();
 		default:
 			return "Afara ploua!!";
 		}

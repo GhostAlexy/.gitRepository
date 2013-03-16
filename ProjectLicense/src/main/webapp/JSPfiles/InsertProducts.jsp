@@ -14,7 +14,7 @@
 			<label>Description:</label>
 			<textarea cols="50" rows="10" name="description" id="txtDescr"
 				class="textAreaDescr"></textarea>
-			<br /> 
+			<br />
 			<div id="20" class="err"></div>
 			<label>Unit stock:</label> <input id="4" name="unitStock"
 				class="textBoxProduct" type="text" /><br />
@@ -25,7 +25,18 @@
 			<label>Sales Price:</label> <input id="6" name="salesPrice"
 				class="textBoxProduct" type="text" /><br />
 			<div id="15" class="err"></div>
-			<label>Weight:</label> <input id="7" name="weight"
+			<label>Inventory:(*)</label>
+			<div class="styled-select">
+				<select name="inventory" class="textBoxProduct" id="20"
+					style="width: 230px; height: 40px;">
+					<c:forEach items="${inventory}" var="invent">
+						<option>
+							<c:out value="${invent.inventoryName}" />
+						</option>
+					</c:forEach>
+				</select>
+			</div>
+			<br /> <label>Weight:</label> <input id="7" name="weight"
 				class="textBoxProduct" type="text" /><br />
 			<div id="16" class="err"></div>
 			<label>Product Category:(*)</label>

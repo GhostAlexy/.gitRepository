@@ -14,9 +14,10 @@ import function.use.project.FunctionToUse;
 
 public class InsertProduct extends HttpServlet {
 	private JDBCConnection conn = JDBCConnection.getConnection();
-	Connection con;
+	private Connection con;
 	private FunctionToUse func;
 	private DBInterog databaseInterog;
+	private int idInventoryUsed;
 
 	public InsertProduct() {
 		con = conn.getCon();
@@ -28,19 +29,23 @@ public class InsertProduct extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		PreparedStatement pstmt, updatestmt = null;
+		PreparedStatement pstmt = null;
 
 		String insertInterog = "Insert into products(nameProduct,articleNumber,description,unitStock,supplierPrice,salesPrice,weight,id_categ,image,comment) values(?,?,?,?,?,?,?,?,?,?)";
 		String updateInterog = "Update products set nameProduct = ?, articleNumber = ?, description = ?, unitStock = ?, supplierPrice = ?, salesPrice = ?, weight = ?, id_categ = ?, image = ?, comment = ? where id = "
 				+ request.getParameter("id");
+
 		int idNumber = Integer.parseInt(databaseInterog.getRow("id",
 				"productcategory", "name", request.getParameter("category"))
 				.toString());
+
 		String name = databaseInterog.getRow("nameProduct", "products",
 				"nameProduct", request.getParameter("PN")).toString();
+
 		String articleNumber = databaseInterog.getRow("articleNumber",
 				"products", "articleNumber", request.getParameter("EAN"))
 				.toString();
+
 		if (request.getParameter("insertProd") != null) {
 			try {
 
@@ -64,12 +69,35 @@ public class InsertProduct extends HttpServlet {
 					pstmt.setString(9, request.getParameter("image"));
 					pstmt.setString(10, request.getParameter("comment"));
 					pstmt.executeUpdate();
-					response.sendRedirect("ControlerListProduct.aspx");
+					pstmt.close();
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+			/**
+			 * Retin id-ul ultimei inregistrari adaugate
+			 */
+			int idLastInsert = Integer.parseInt(databaseInterog.getRow("id",
+					"products", "nameProduct", request.getParameter("PN"))
+					.toString());
+			/**
+			 * Retin id-ul inventoriului in care a fost adaugat produsul
+			 */
+			idInventoryUsed = Integer.parseInt(databaseInterog.getRow("id",
+					"inventory", "inventoryName",
+					request.getParameter("inventory")).toString());
 
+			String insertLinkTable = "Insert into products_inventory(id_product,id_inventory)values(?,?)";
+			try {
+				pstmt = con.prepareStatement(insertLinkTable);
+				pstmt.setInt(1, idLastInsert);
+				pstmt.setInt(2, idInventoryUsed);
+				pstmt.executeUpdate();
+				pstmt.close();
+			} catch (SQLException e) {
+				System.err.println("Sql sintax error: " + e);
+			}
+			response.sendRedirect("ControlerListProduct.aspx");
 		}
 
 		if (request.getParameter("cancelInsert") != null) {
@@ -77,22 +105,38 @@ public class InsertProduct extends HttpServlet {
 		}
 		if (request.getParameter("updateProd") != null) {
 			try {
-				updatestmt = con.prepareStatement(updateInterog);
-				updatestmt.setString(1, request.getParameter("PN"));
-				updatestmt.setString(2, request.getParameter("EAN"));
-				updatestmt.setString(3, request.getParameter("description"));
-				updatestmt.setString(4, request.getParameter("unitStock"));
-				func.addOnlyNumber(request, updatestmt, "buyPrice", 5);
-				func.addOnlyNumber(request, updatestmt, "salesPrice", 6);
-				func.addOnlyNumber(request, updatestmt, "weight", 7);
-				updatestmt.setInt(8, idNumber);
-				updatestmt.setString(9, request.getParameter("image"));
-				updatestmt.setString(10, request.getParameter("comment"));
-				updatestmt.executeUpdate();
-				response.sendRedirect("ControlerListProduct.aspx");
+				pstmt = con.prepareStatement(updateInterog);
+				pstmt.setString(1, request.getParameter("PN"));
+				pstmt.setString(2, request.getParameter("EAN"));
+				pstmt.setString(3, request.getParameter("description"));
+				pstmt.setString(4, request.getParameter("unitStock"));
+				func.addOnlyNumber(request, pstmt, "buyPrice", 5);
+				func.addOnlyNumber(request, pstmt, "salesPrice", 6);
+				func.addOnlyNumber(request, pstmt, "weight", 7);
+				pstmt.setInt(8, idNumber);
+				pstmt.setString(9, request.getParameter("image"));
+				pstmt.setString(10, request.getParameter("comment"));
+				pstmt.executeUpdate();
+				pstmt.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+
+			idInventoryUsed = Integer.parseInt(databaseInterog.getRow("id",
+					"inventory", "inventoryName",
+					request.getParameter("inventory")).toString());
+			String updateLinkTable = "Update products_inventory set id_inventory= ? where id_product="
+					+ request.getParameter("id");
+			try {
+				pstmt = con.prepareStatement(updateLinkTable);
+				pstmt.setInt(1, idInventoryUsed);
+				pstmt.executeUpdate();
+				pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+			response.sendRedirect("ControlerListProduct.aspx");
 		}
 
 	}
