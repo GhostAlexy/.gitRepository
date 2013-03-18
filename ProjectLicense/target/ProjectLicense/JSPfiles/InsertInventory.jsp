@@ -10,7 +10,7 @@
 		<label>Inventory location:(*)</label> <input id="2" name="IL"
 			class="textBoxProduct" type="text" /><br />
 		<div id="12" class="err"></div>
-		<label>Stock capacity:(*)</label> <input id="2" name="stocCapacity"
+		<label>Stock capacity:(*)</label> <input id="2" name="stockCapacity"
 			class="textBoxProduct" type="text" /><br />
 		<div id="13" class="err"></div>
 		<input name="insertInventory" value="Insert" class="insertProduct"
